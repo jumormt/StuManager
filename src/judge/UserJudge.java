@@ -21,11 +21,7 @@ public class UserJudge implements UserJudgeImp {
         try {
             usrinfo = qr.query(DataSourceUtils.getConnection(), sql,new BeanHandler<>(User.class), userName, password);
             System.out.println(usrinfo);
-			if (usrinfo != null) {
-				return true;
-			}else {
-				return false;
-			}
+			return usrinfo != null;
         } catch (Exception e) {
             throw e;
         }
